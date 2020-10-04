@@ -1,33 +1,41 @@
 package cse360assignment02;
 
 public class AddingMachine {
-    // total of the adding machine
     private int total;
+    private String result = "0 ";
 
-    // constructor
     public AddingMachine () {
         total = 0;  // not needed - included for clarity
     }
 
-    // returns the total
     public int getTotal () {
-        return 0;
+        return total;
     }
 
-    // add value to the total and the memory
     public void add (int value) {
+        total = total + value;
+        result+= "+ " + value + " ";
     }
 
-    // subtracts value from the total and the memory
     public void subtract (int value) {
+        total = total - value;
+        result+= "- " + value + " ";
     }
 
-    // shows all the operations that have been done to the total
     public String toString () {
-        return "";
+        return result;
     }
 
-    // resets the total and the result string
     public void clear() {
+        total = 0;
+        result = "0 ";
+    }
+
+    public static void main(String[] args) {
+        AddingMachine myCalculator = new AddingMachine();
+        myCalculator.add (4);
+        myCalculator.subtract (2);
+        myCalculator.add(5);
+        System.out.println(myCalculator.toString());
     }
 }
